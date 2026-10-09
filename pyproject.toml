@@ -1,0 +1,30 @@
+[project]
+name = "storeappeldar"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "pymysql",
+    "flask",
+    "selenium",
+    "requests",
+    "cryptography",
+    "pytest",
+    "pytest-html>=4.2.0"
+]
+
+[tool.pytest.ini_options]
+# Registering custom markers to avoid pytest warnings and organize test execution
+markers = [
+    "repository: Tests targeting the product_repository data layer.",
+    "service: Tests targeting the product_service business logic layer.",
+    "positive: Happy path scenarios where the operation is expected to succeed.",
+    "negative: Error handling scenarios testing constraints and exceptions.",
+    "edge: Boundary testing for minimum/maximum application thresholds (e.g., price 0, lengths).",
+    "types: Dynamic type checking and validation testing with malformed runtime inputs.",
+    "unit: Isolated unit tests using mocks instead of database environments.",
+    "ui: End-to-End browser automation tests using Selenium Webdriver.",
+    "navigation: Tests focusing explicitly on hyperlinks and page switching routes.",
+    "api: Automated API and HTTP integration tests targeting Flask routing endpoints."
+]
+
