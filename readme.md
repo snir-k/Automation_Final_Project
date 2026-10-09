@@ -1,13 +1,13 @@
 # Product Management System - Tiered Automation & Integration Testing Suite
 
-## Project Overview
+## Project Overview:
 This repository contains a comprehensive, production-ready automated testing suite for a multi-tiered **Product Management System**. The framework targets and validates the **Data Access Layer (`product_repository`)**, the **Business Logic Layer (`product_service`)**, the asynchronous **Browser UI Frontend (`Selenium WebDriver`)**, and the network **Web API Routing endpoints (`Requests`)**.
 
 The suite is engineered utilizing Python's **Pytest framework**, incorporating strict setup/teardown isolation, parametrization, abstract mocking structures, and programmatic data hardening to achieve a flawless **100% test execution stability rate** across all core system layers.
 
 ---
 
-## Testing Architecture
+## Testing Architecture:
 The automation framework is constructed using an advanced decoupled architectural pattern to enforce clean-code and enterprise scalability standards:
 
 1. **`models/models.py`**: Houses the foundational domain representation entity (`Product`) utilizing Python dataclasses with strict runtime type-hint signatures.
