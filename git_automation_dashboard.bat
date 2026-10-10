@@ -12,6 +12,13 @@ mode con cols=160 lines=45
 :: ARCHITECTURAL FIX: Force-clear any structural submodule remnants from current index caching memory
 git rm --cached -r . >nul 2>&1
 
+:: UI ESCAPE CODES: Micro-engine configuration to enable selective line coloring in Windows 10/11
+for /F "tokens=1,2 delims=#" %%a in ('"prompt #$H# & echo on & for %%b in (1) do rem"') do set "DEL=%%a"
+for /F %%a in ('echo prompt $E^| cmd') do set "ESC=%%a"
+
+:: ENFORCES SECURE VARIABLE EXPANSION TO PREVENT QUOTE CRASHES
+setlocal EnableDelayedExpansion
+
 :: ARCHITECTURAL GATEWAY: Auto-detects if Git is initialized. If not, self-initializes seamlessly.
 if not exist ".git" (
     echo [INFO] Local Git repository not detected in this workspace.
@@ -29,7 +36,8 @@ echo ===========================================================================
 echo                   HARDENED GIT ENGINE Hub - INTERACTIVE QA COMPLIANCE DASHBOARD
 echo ====================================================================================================
 echo.
-echo     1. Run COMPLETE Sync Pipeline (Pull -^> Status -^> Add -^> Commit -^> Push)
+:: UI HIGHLIGHT: Colors option 1 in glowing matrix emerald green using ANSI escape hex models
+echo     %ESC%[92m1. Run COMPLETE Sync Pipeline (Pull -^> Status -^> Add -^> Commit -^> Push) [RECOMMENDED]%ESC%[0m
 echo.
 echo     2. Check Repository Local Status (git status)
 echo.
@@ -85,14 +93,12 @@ git status
 echo.
 echo ====================================================================================================
 echo [STEP 3/5] Staging all tracked files and filtering excluded .gitignore objects...
-:: Hardened staging sequence
 git rm --cached -r . >nul 2>&1
 git add .
 
 echo.
 echo ====================================================================================================
 echo [STEP 4/5] Preparing Local Commit Baseline...
-:: Pure dynamic execution without input prompts to prevent syntax runtime breakage
 git commit -m "Automation Suite Update: Pipeline operations synchronized via compliance dashboard"
 
 echo.
@@ -111,7 +117,6 @@ if %errorlevel% neq 0 (
         echo [ERROR] Operation aborted. Remote URL cannot be blank on first push deployment.
     )
 ) else (
-    :: Forces execution resolution across conflicted branches cleanly
     git push -f origin main
 )
 
