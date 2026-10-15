@@ -36,25 +36,25 @@ class Product:
 #             self.image == other.image
 
 
-if __name__ == '__main__':
-    # object representation of a product
-    p = Product(1, 'test', 100, 'test.jpg')
-    print(p.product_id)
-    print(p.name)
-    print(p.price)
-    print(p.image)
-
-    # dictionary representation of a product
-    p_dict = {
-        "product_id": 1,
-        "name": "test",
-        "price": 100,
-        "image": "test.jpg",
-
-    }
-    print(p_dict.get("product_id"))
-    print(p_dict.get("name"))
-    print(p_dict.get("price"))
-    print(p_dict.get("image"))
+# if __name__ == '__main__':
+#     # object representation of a product
+#     p = Product(1, 'test', 100, 'test.jpg')
+#     print(p.product_id)
+#     print(p.name)
+#     print(p.price)
+#     print(p.image)
+#
+#     # dictionary representation of a product
+#     p_dict = {
+#         "product_id": 1,
+#         "name": "test",
+#         "price": 100,
+#         "image": "test.jpg",
+#
+#     }
+#     print(p_dict.get("product_id"))
+#     print(p_dict.get("name"))
+#     print(p_dict.get("price"))
+#     print(p_dict.get("image"))
 
 

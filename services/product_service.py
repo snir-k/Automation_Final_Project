@@ -13,7 +13,7 @@ class ProductServiceError(Exception): pass
 def _validate_product_types(product: Product) -> None:
     """
     Private Helper: Validates runtime data types and formats to prevent
-    server crashes, SQL injections, or unhandled exceptions. (Fixes Bug 3 & 4)
+    server crashes, SQL injections, or unhandled exceptions. (Fixes Bug #3 & Bug #4)
     """
     # Validate Price Type and Range
     if product.price is not None and not isinstance(product.price, (int, float)):
@@ -44,7 +44,7 @@ def add_product(product: Product) -> int:
 
 
 def get_product(product_id: int) -> Product:
-    # Fixes Bug 5: Guard clause against invalid or negative IDs
+    # Fixes Bug #5: Guard clause against invalid or negative IDs during selection
     if not isinstance(product_id, int) or product_id <= 0:
         raise ProductNotFoundServiceError(f"Product not found: {product_id}")
 
@@ -59,11 +59,11 @@ def get_all_products() -> List[Product]:
 
 
 def update_product(product: Product) -> None:
-    # Fixes Bug 5: Guard clause against missing or invalid IDs during update
+    # Fixes Bug #5: Guard clause against missing or invalid IDs during update
     if product.product_id is None or product.product_id <= 0:
         raise ProductNotFoundServiceError(f"Product not found: {product.product_id}")
 
-    # Fixes Bug 4: Enforce same strict type checks during updates
+    # Fixes Bug #4: Enforce same strict type checks during updates
     _validate_product_types(product)
     try:
         if not product_repository.update_product(product):
@@ -74,7 +74,7 @@ def update_product(product: Product) -> None:
 
 
 def delete_product(product_id: int) -> None:
-    # Fixes Bug 5: Guard clause against invalid IDs during deletion
+    # Fixes Bug #5: Guard clause against invalid IDs during deletion
     if not isinstance(product_id, int) or product_id <= 0:
         raise ProductNotFoundServiceError(f"Product not found: {product_id}")
 
