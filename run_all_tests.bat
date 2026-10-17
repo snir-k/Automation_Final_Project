@@ -1,5 +1,5 @@
 @echo off
-:: QA AUTOMATION FRAMEWORK HUB - ENTERPRISE RUNNER INTERFACE WITH JIRA CLOUD UPGRADE
+:: QA AUTOMATION FRAMEWORK HUB - ENTERPRISE RUNNER INTERFACE WITH QA DASHBOARD ENGINE
 cls
 :menu
 echo =================================================================
@@ -12,7 +12,7 @@ echo  4. Run UI Form Functional Suite Only (test_browser_forms.py - 6 Tests)
 echo  5. Run UI Navigation E2E Suite Only (test_browser_navigation.py - 5 Tests)
 echo  6. Run Isolated Unit Mock Suite Only (test_product_unit.py - 3 Tests)
 echo  7. RUN EXPERIMENTAL SUITE - BROADCAST DIRECTLY TO JIRA CLOUD XRAY (Testing Mode)
-echo  8. Clean Metadata Compilation Cache Contexts
+echo  8. Launch Advanced QA Git Automation Dashboard (Dynamic CLI Tool)
 echo  9. Exit Framework Automation Runner Hub
 echo =================================================================
 set /p choice="Select an architectural layer execution path (1-9): "
@@ -67,11 +67,13 @@ if "%choice%"=="7" (
     goto menu
 )
 if "%choice%"=="8" (
-    echo Clearing framework cache instances...
+    echo Launching dynamic QA Version Control Dashboard...
     call .venv\Scripts\activate
-    pytest --cache-clear
-    echo System environment stack sterile and optimized.
-    pause
+    python git_automation_dashboard.py
+    if errorlevel 1 (
+        echo [Critical Error] The Python controller crashed or failed to load.
+        pause
+    )
     goto menu
 )
 if "%choice%"=="9" exit
