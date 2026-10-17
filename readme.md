@@ -1,98 +1,61 @@
-# Product Management System - Tiered Automation & Integration Testing Suite
+# 🛒 Product Management System - Automation Testing Framework v2.0
 
-## Project Overview:
-This repository contains a comprehensive, production-ready automated testing suite for a multi-tiered **Product Management System**. The framework targets and validates the **Data Access Layer (`product_repository`)**, the **Business Logic Layer (`product_service`)**, the asynchronous **Browser UI Frontend (`Selenium WebDriver`)**, and the network **Web API Routing endpoints (`Requests`)**.
-
-The suite is engineered utilizing Python's **Pytest framework**, incorporating strict setup/teardown isolation, parametrization, abstract mocking structures, and programmatic data hardening to achieve a flawless **100% test execution stability rate** across all core system layers.
+Comprehensive Enterprise-Grade Automation Testing Architecture built using **Python, Flask, Pytest, and Selenium WebDriver**. This repository contains the hardened **Sprint 2 (v2.0)** pipeline release, featuring full payload sanitization, binary file persistence, and automated regression testing.
 
 ---
 
-## Testing Architecture:
-The automation framework is constructed using an advanced decoupled architectural pattern to enforce clean-code and enterprise scalability standards:
-
-1. **`models/models.py`**: Houses the foundational domain representation entity (`Product`) utilizing Python dataclasses with strict runtime type-hint signatures.
-2. **`repositories/product_repository.py`**: Simulates the production relational database engine via isolated dynamic In-Memory data arrays, enforcing structural constraints (`Not Null`, string character length boundaries, and unique key indexes).
-3. **`services/product_service.py`**: Represents the backend core business logic rules. Implements private dynamic validation gateways (`_validate_product_types`) and logical firewall guard clauses to sanitize data parameters before data-layer insertion.
-4. **`tests/conftest.py`**: Centralized configuration infrastructure housing global Pytest fixtures. Manages the decoupled setup/teardown database states via `db_cleaner` and customizes interactive HTML metadata reporting metrics.
-5. **Core Test Suites**: Distributed modular testing engines checking backend data logic, isolated unit limits, end-to-end user navigation pathways, web forms interaction loops, and bare-metal HTTP endpoint communication layers.
+## 📈 System Maturity Overview
+* **Baseline Sprint 1:** 10 Known Bugs Detected | 48 Test Iterations Compiled (1 Expected Failure).
+* **Hardened Sprint 2 (Current):** 13 Structural Vulnerabilities Destroyed | **52 Automated Test Iterations Passed (100% Success Rate)**.
+* **Warning & Code Quality Metrics:** 0 Static Linter Warnings | 0 Redundant Declarations | 100% Sterile PyCharm Project Workspace.
 
 ---
 
-## 📊 Complete Automation Test Scope (47 Executed Test Cases)
+## 🛠️ Sprint 2 Architectural Enhancements & Defect Resolutions
 
-| Test Module / Suite | Covered Executed Cases | Functional Layer & Core Objective | Applied Testing Markers |
-| :--- | :--- | :--- | :--- |
-| 🔹 **[`test_product_flow.py`](tests/test_product_flow.py)** ![](https://shields.io) | <kbd>&nbsp;**26 Passed**&nbsp;</kbd> | Evaluates backend integration piping across repository constraints and business logic thresholds. Hardened via parametrization to intercept input failures, malformed imagery structures, type castings, and negative values. | `repository`, `service`, `positive`, `negative`, `edge`, `types` |
-| 🔹 **[`test_product_api.py`](tests/test_product_api.py)** ![](https://shields.io) | <kbd>&nbsp;**8 Passed**&nbsp;</kbd> | Validates bare-metal HTTP JSON payloads (`GET`, `POST`) directly targeting Flask blueprint routing endpoints. Integrates dynamic runtime timestamping (`time.time()`) to completely defeat multi-process Test Data Pollution. | `api`, `positive`, `negative`, `edge` |
-| 🔹 **[`test_browser_forms.py`](tests/test_browser_forms.py)** ![](https://shields.io) | <kbd>&nbsp;**6 Tracked**&nbsp;</kbd> | Drives active browser viewports via Selenium to validate dynamic web form interactions, city dropdown selects, Reset/Submit inputs, checkbox/radio states, async progress counters, alert handling, and duplicate resubmission vulnerabilities. | `ui`, `positive`, `negative`, `edge` |
-| 🔹 **[`test_browser_navigation.py`](tests/test_browser_navigation.py)** ![](https://shields.io) | <kbd>&nbsp;**4 Passed**&nbsp;</kbd> | Simulates E2E human navigation looping across subdirectories. Hardened via explicit `WebDriverWait` gates and structural Index-Based Tag selectors to intercept structural DOM rendering lag. | `ui`, `navigation`, `positive`, `negative` |
-| 🔹 **[`test_product_unit.py`](tests/test_product_unit.py)** ![](https://shields.io) | <kbd>&nbsp;**3 Passed**&nbsp;</kbd> | Implements direct business logic isolation by deploying `@patch` decorators and `MagicMock` objects to simulate error propagation and boundary loops without database dependencies. | `unit`, `positive`, `negative`, `edge` |
-| 👑 **Total Framework Verdict** | ![](https://shields.io) | **Complete round-trip tiered automation architecture. Production deployment baseline verified and certified.** | **Final Submission Ready** |
+### 1. Backend Security Hardening (`app.py` & `product_service.py`)
+* **Bug #11 (Whitespace Injections Destroyed):** Implemented strict alphanumeric regular expression engines (`re.compile`) across both Client-side (`static/main.js`) and Backend API Gateways to eliminate raw space injections in Product Names and Image fields.
+* **Bug #13 (Payload Security & Malicious Extensions):** Enforced a secure strict filename extension whitelist matching `.png`, `.jpg`, and `.jpeg` only. Any bypass vectors attempting malicious format compilation (e.g., `.exe`, `.sh`) are instantly trapped and rejected with a `400 Bad Request`.
+* **Bug #16 (Float Casting Validation Guard):** Isolated parsing routines with a non-disruptive validation abstraction hook (`_is_valid_float`) to intercept non-numeric raw parameters, preventing server crashes (`Status 500`) and enforcing graceful standard error responses.
 
----
-
-## Discovered Architectural Bugs & Resolutions (10 Core Defects Hardened)
-
-1. **Defect #1: Unenforced Negative Pricing Policy (`product_service`)**
-   * *Issue:* The database repository layer did not intercept negative numeric bounds in Python, leading to financial logic breaches.
-   * *Resolution:* Engineered an explicit logical firewall guard clause within the service layer to reject negative pricing thresholds before SQL persistence.
-2. **Defect #2: Duplicate Product Name Violations (`product_repository`)**
-   * *Issue:* Risk of writing duplicate concurrent product records without rigid schema uniqueness enforcement.
-   * *Resolution:* Hardened database constraints via Unique Index parameters and implemented structural exception wrappers.
-3. **Defect #3: Critical API Error Response Spelling Typo (`product_service`)**
-   * *Issue:* An embarrassing spelling defect (`"at list"` instead of `"at least"`) inside user-facing exceptions compromised API UX.
-   * *Resolution:* Patched the exception string literal baseline to comply with professional production interface standards.
-4. **Defect #4: Runtime Application Crashes via Type Mismatch (`product_service`)**
-   * *Issue:* Passing completely corrupted datatypes (e.g., text inside price fields) triggered unhandled execution crashes.
-   * *Resolution:* Deployed explicit runtime type validation loops powered by Python's `isinstance` handler to reject corrupt inputs.
-5. **Defect #5: Missing Validation Constraints on Product Updates (`product_service`)**
-   * *Issue:* Security parameters were enforced during initial resource creation but entirely missing during product update sequences.
-   * *Resolution:* Consolidated application validation pathways to dynamically protect both creation and update channels equally.
-6. **Defect #6: Structural DOM ID Discrepancy Spelling Error (`home.html`)**
-   * *Issue:* A developer typo in the HTML template source (`id="proffesions"`) caused strict, traditional automated element locators to fail.
-   * *Resolution:* Upgraded Selenium locators to dynamic, fallback Index-Based Tag arrays to ensure total UI automation resiliency.
-7. **Defect #7: Concurrent Execution Test Data Pollution (`test_product_api`)**
-   * *Issue:* Shared state collisions occurred during batch test execution when Selenium UI routines left lingering records that broke API constraints.
-   * *Resolution:* Engineered an automated runtime timestamp seeding mechanism (`time.time()`) to guarantee 100% unique data payloads.
-8. **Defect #8: Unhandled Complex Structures in Image Ingestion (`product_service`)**
-   * *Issue:* Injecting deep objects (dictionaries or lists) into image reference paths caused absolute backend core crashes.
-   * *Resolution:* Hardened parameters via explicit `isinstance(product.image, str)` type checking gates at the service border.
-9. **Defect #9: Form Resubmission Vulnerability on Back Navigation (`test_browser_forms`)**
-   * *Issue:* Navigating backward via browser history left input fields populated, permitting malicious duplicate form submits to the database.
-   * *Resolution:* Documented the defect seamlessly via Pytest's `@pytest.mark.xfail` module and advocated for a Post/Redirect/Get (PRG) backend design pattern.
-10. **Defect #10: Asynchronous Thread Freeze on Dynamic Confirmations (`home.html`)**
-    * *Issue:* The dynamically rendered green 'OK' confirmation button locked screen interactivity and froze background progress counters.
-    - *Resolution:* Implemented an optimized synchronization workflow using Lambda predicates within `WebDriverWait` to intercept the 100% state, execute an intentional click, and verify a complete counter reset to 0.
+### 2. UI/UX Synchronization & Modernized Core Framework (`static/main.js`)
+* **Binary File Upload Interceptor:** Upgraded the legacy JSON pipeline into a dynamic `FormData` API. Browser executions handle physical image uploads directly to disk storage layers, syncing assets onto the live DOM interface.
+* **Dynamic Short Timestamps (HHMM):** Eradicated string duplication memory overload on product row refreshes by locking short 4-digit dynamic clock timestamps (e.g., `1546`), preventing column text padding breakage.
+* **DOM Event Binding Compliance:** Removed inline deprecated HTML listeners (`onsubmit`) to align with contemporary DOM standards, migrating triggers to decoupled `addEventListener` declarations.
 
 ---
 
-## Instructions for the Evaluator
+## 🧪 Automated Testing Architecture Matrix
 
-### 1. Prerequisites & Environment Setup
-Ensure Python 3.10+ is installed on your local machine. Open your terminal at the project root folder and execute the package installation commands:
-```bash
-pip install pytest pytest-html selenium requests
-```
+The suite enforces an exhaustive **52 Test Iterations Matrix** across 5 isolated layers:
 
-### 2. Executing the Complete 48-Test Suite & Generating Visual HTML Report
-To execute all 48 automated integration, unit, UI, and API test cases simultaneously while clearing the testing cache and building a single compiled visual dashboard, run:
-```bash
-pytest tests/ --html=reports/complete_automation_report.html --self-contained-html --cache-clear -v
-```
+| Target Layer Module | Component / Logic Under Test | Active Test Volume | Execution Profile |
+| :--- | :--- | :---: | :--- |
+| `tests/test_product_flow.py` | DB Matrix Constraints, Type Safety & Duplicate Bounds | **28 Tests** | Pytest DB Fixtures |
+| `tests/test_product_api.py` | Network Boundaries, Parametrized Form Payloads | **10 Tests** | Flask Test Client |
+| `tests/test_browser_forms.py` | UI Interceptors, Alphanumeric Validation Boxes | **6 Tests** | Selenium Headless Chrome |
+| `tests/test_browser_navigation.py`| E2E Window Trace Router Navigation and Redirect Links | **5 Tests** | Selenium Wait Conditions |
+| `tests/test_product_unit.py` | Isolated Business Logic and Mock Services Channel | **3 Tests** | Unittest Mock Framework |
 
-### 3. Running Specific Testing Targets
-* To execute **only Web API Network Routing (`Requests`)** tests:
-  ```bash
-  pytest tests/ -m api -v
-  ```
-* To execute **only Isolated Unit Logic (`Mocks`)** tests:
-  ```bash
-  pytest tests/ -m unit -v
-  ```
-* To execute **only Browser UI Interface (`Selenium`)** tests:
-  ```bash
-  pytest tests/ -m ui -v
-  ```
+---
 
-### 4. Viewing Results
-Navigate to the newly generated `reports/` subdirectory and open `complete_automation_report.html` in any standard web browser to view the interactive matrix dashboard.
+## 💻 Local Testing & Execution Environment
+
+### Prerequisites
+Ensure your local workspace satisfies the updated dependencies inside `pyproject.toml`:
+* `pytest >= 9.1.1`
+* `pytest-html >= 4.2.0`
+* `selenium >= 4.0.0`
+* `flask >= 3.0.0`
+* `pymysql >= 1.1.0`
+
+### Step-by-Step Deployment
+1. Fire up the central Flask application engine:
+   ```bash
+   python app.py
+   ```
+2. Launch the local automation console matrix using our dynamic dashboard interface file:
+   ```bash
+   run_all_tests.bat
+   ```
+3. To trigger local executions select option `1`. To evaluate our custom inline **Jira Xray Pipeline Broadcaster Hub**, choose option `7` to forward bundled payload reports straight to Issue `KAN-14`.

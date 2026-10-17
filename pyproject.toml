@@ -1,30 +1,40 @@
 [project]
-name = "storeappeldar"
-version = "0.1.0"
-description = "Add your description here"
-requires-python = ">=3.13"
+name = "automation-final-project"
+version = "2.0.0"
+description = "Product Management System Automation Testing Framework"
+authors = [{ name = "Snir Kanias" }]
 dependencies = [
-    "pymysql",
+    "pytest>=9.1.1",
+    "pytest-html>=4.2.0",
+    "requests>=2.31.0",
+    "selenium>=4.0.0",
     "flask",
-    "selenium",
-    "requests",
-    "cryptography",
-    "pytest",
-    "pytest-html>=4.2.0"
+    "pymysql>=1.2.3"
 ]
 
 [tool.pytest.ini_options]
-# Registering custom markers to avoid pytest warnings and organize test execution
-markers = [
-    "repository: Tests targeting the product_repository data layer.",
-    "service: Tests targeting the product_service business logic layer.",
-    "positive: Happy path scenarios where the operation is expected to succeed.",
-    "negative: Error handling scenarios testing constraints and exceptions.",
-    "edge: Boundary testing for minimum/maximum application thresholds (e.g., price 0, lengths).",
-    "types: Dynamic type checking and validation testing with malformed runtime inputs.",
-    "unit: Isolated unit tests using mocks instead of database environments.",
-    "ui: End-to-End browser automation tests using Selenium Webdriver.",
-    "navigation: Tests focusing explicitly on hyperlinks and page switching routes.",
-    "api: Automated API and HTTP integration tests targeting Flask routing endpoints."
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+
+filterwarnings = [
+    "ignore::DeprecationWarning"
 ]
 
+# JIRA XRAY CLOUD INTEGRATION BOUNDS: Enter your real, active keys right here
+# Double check that there are no trailing spaces inside the quotation marks
+xray_client_id = "DE7722A7F8DC44E7BBBED2EF09EB6263"
+xray_client_secret = "9b72e1241f765a4ada4d1ec999484d910a95e10b2e87b5b0cc1f5e0d53ea9f49"
+
+markers = [
+    "api: RESTful Web API endpoint network suite validation path",
+    "ui: Selenium WebDriver E2E browser automation functional path",
+    "unit: Isolated business logic layer service unit mock tokens",
+    "repository: Database layer SQL constraint infrastructure suite",
+    "service: Core business logic guard clause validation suite",
+    "positive: Happy path execution routing tracking",
+    "negative: Boundary condition and payload hardening validation",
+    "navigation: E2E browser tab and window trace scripts",
+    "edge: Boundary edge cases and numeric exception handling pathways",
+    "xray: Custom marker to map Pytest methods directly to Jira Issue Keys"
+]

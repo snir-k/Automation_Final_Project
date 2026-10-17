@@ -1,46 +1,79 @@
+<!-- name: index.html -->
+<!-- file linter configuration: global variables suppress context -->
+<!-- PyCharm html inspection suppress unresolved reference -->
+<!-- PyCharm html inspection suppress unknown target -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product Manager</title>
-
-  <!-- <link rel="stylesheet" href="style.css" /> -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <script src="{{ url_for('static', filename='main.js') }}" defer></script>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Product Management Framework Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Product Manager</h1>
-    <form id="product-form">
-      <input type="hidden" id="product-id" />
-      <input type="text" id="name" placeholder="Product Name" required title="Product Name"/>
-      <input type="number" step="0.01" id="price" placeholder="Price" required  title="Product Price"/>
-      <input type="text" id="image" placeholder="Image URL" required  title="Product Image URL"/>
-      <button type="submit"><span class="underlined">Add</span> / <span class="underlined">Update</span> Product</button>
-    </form>
+    <div class="container">
+        <!-- FIXES REDUNDANCY & DEPRECATION WARNING: Removed all dynamic inline style codes -->
+        <div class="nav-header">
+            <a href="/other/home" id="static-home-link">Static Home Website Link</a>
+        </div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Image</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="product-table"></tbody>
-    </table>
+        <h1>Product Manager Architecture Hub</h1>
 
-    <div id="product-details" class="card"></div>
-    <br>
-    <a href="/other/home">Go to the static website</a>
-  </div>
+        <!-- DYNAMIC NOTIFICATION BLOCK -->
+        <div id="ui-alert-box" class="alert"></div>
 
-  <!-- <script src="main.js"></script> -->
+        <!-- PRODUCT INPUT FORM -->
+        <!-- FIXES DEPRECATION WARNING: Removed inline onsubmit handler to use clean event binding -->
+        <form id="product-form">
+            <div class="form-group">
+                <label for="product-name">Product Name:</label>
+                <input type="text" id="product-name" name="name" required placeholder="Enter product name">
+            </div>
+
+            <div class="form-group">
+                <label for="product-price">Price:</label>
+                <input type="text" id="product-price" name="price" required placeholder="0.00">
+            </div>
+
+            <div class="form-group">
+                <label for="product-image">Image Filename / URL:</label>
+                <input type="text" id="product-image" name="image" placeholder="filename.png">
+                <input type="file" id="file-uploader" accept="image/png, image/jpeg, image/jpg" style="margin-top: 5px;">
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn btn-primary">Add / Update Product</button>
+        </form>
+
+        <!-- PRODUCT DETAILS CARD VIEW -->
+        <div id="product-details" class="card" style="display: none; margin-top: 20px;">
+            <div class="card-header">
+                <h3>Product Insights</h3>
+                <button type="button" id="close-details-btn" class="btn-close" onclick="closeProductDetails()">X</button>
+            </div>
+            <div class="card-body">
+                <p><strong>ID:</strong> <span id="details-id"></span></p>
+                <p><strong>Name:</strong> <span id="details-name"></span></p>
+                <p><strong>Price:</strong> $<span id="details-price"></span></p>
+                <div id="details-image-container" style="margin-top: 10px;"></div>
+            </div>
+        </div>
+
+        <!-- PRODUCT INVENTORY TABLE GRID -->
+        <table class="table" id="products-table" style="margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Dynamically populated via JavaScript external async engine loops -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/static/main.js"></script>
 </body>
 </html>

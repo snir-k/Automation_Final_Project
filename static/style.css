@@ -81,3 +81,61 @@ th {
 .underlined{
     text-decoration: underline;
 }
+
+/* UI/UX COLOR BRAND COMPLIANCE */
+.btn-danger {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+    border: 1px solid #dc3545 !important;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn-danger:hover {
+    background-color: #bd2130 !important;
+}
+.btn-info {
+    background-color: #17a2b8 !important;
+    color: #ffffff !important;
+    border: 1px solid #17a2b8 !important;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.btn-info:hover {
+    background-color: #138496 !important;
+}
+
+/* UI/UX ACCESSIBILITY COMPLIANCE */
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: #dc3545 !important; /* Made glowing tech red as standard default display state */
+    cursor: pointer;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-close:hover {
+    color: #bd2130 !important; /* Deep dark crimson text color on hover targeting high contrast */
+    background-color: #f8d7da !important; /* Premium ultra-light pink/red responsive background color tint */
+}
+
+/* FIXED DEPRECATION AND LAYOUT ALIGNMENT */
+.nav-header {
+    background-color: #333 !important;
+    padding: 10px !important;
+    margin-bottom: 20px !important;
+    border-radius: 4px !important;
+    display: block !important;
+}
+.nav-header a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+}

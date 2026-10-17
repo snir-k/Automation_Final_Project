@@ -11,6 +11,7 @@ from services import product_service # The Business Logic Layer
 @pytest.mark.unit
 @pytest.mark.positive
 @patch('repositories.product_repository.create_product')
+@pytest.mark.xray(test_key="KAN-13")
 def test_unit_add_product_success(mock_create: MagicMock) -> None:
     """
     Positive Unit Test: Verifies that a valid product is verified by the service
