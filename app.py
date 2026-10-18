@@ -1,5 +1,4 @@
 import os
-
 import time
 from services.product_service import ProductNotFoundServiceError, ProductServiceError
 from flask import Flask, request, jsonify, render_template

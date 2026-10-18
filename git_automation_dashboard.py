@@ -161,3 +161,4 @@ def display_main_dashboard() -> None:
 
 if __name__ == "__main__":
     display_main_dashboard()
+

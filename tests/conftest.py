@@ -15,6 +15,7 @@ from services import product_service
 _xray_results_accumulator = {}
 
 
+
 @pytest.fixture(scope="function")
 def db_cleaner():
     """

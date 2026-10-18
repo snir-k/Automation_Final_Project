@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
 // Global event listener to intercept file uploader mutations across jpg, png, jpeg targets
 const fileUploader = document.getElementById('file-uploader');
 if (fileUploader) {

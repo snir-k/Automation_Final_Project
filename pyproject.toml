@@ -38,3 +38,4 @@ markers = [
     "edge: Boundary edge cases and numeric exception handling pathways",
     "xray: Custom marker to map Pytest methods directly to Jira Issue Keys"
 ]
+

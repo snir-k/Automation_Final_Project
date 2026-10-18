@@ -3,7 +3,6 @@ import sys
 import pymysql as sql
 from config.app_config import db_connection_kwargs
 
-
 # get database connection kwargs
 host, user, password, database = db_connection_kwargs.values()
 

@@ -83,3 +83,4 @@ def test_unit_update_product_edge_zero_price(mock_update: MagicMock) -> None:
 
     # Final verification that the mock was invoked once with the end product.
     mock_update.assert_called_once_with(edge_prod)
+

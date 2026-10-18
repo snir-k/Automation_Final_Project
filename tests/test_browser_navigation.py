@@ -125,3 +125,4 @@ def test_ui_verify_static_home_page_window_title(driver: WebDriver) -> None:
     # Asserting that the web tab title text is populated and matches the official system layout
     assert actual_title != "", "Vulnerability Found: Browser tab window title is completely blank!"
     assert "Product" in actual_title or "Home" in actual_title or actual_title is not None
+

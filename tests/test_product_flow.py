@@ -58,3 +58,4 @@ def test_flow_prevent_duplicate_names(db_cleaner, dup_index):
     prod_dup = Product(product_id=0, name=f"Unique Token {dup_index}", price=25.0, image="b.png")
     with pytest.raises(ProductServiceError):
         product_service.add_product(prod_dup)
+

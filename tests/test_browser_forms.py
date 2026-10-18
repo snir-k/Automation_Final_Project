@@ -45,3 +45,4 @@ def test_ui_validate_bug12_numeric_overflow_price(driver):
         ec.visibility_of_element_located((By.ID, "ui-alert-box"))
     )
     assert "Error" in alert_box.text
+

@@ -4,7 +4,6 @@ from models.models import Product
 
 class ProductRepositoryError(Exception): pass
 
-
 # Simulation of the database for testing purposes
 _db_mock: dict[int, Product] = {}
 _id_counter: int = 1

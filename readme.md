@@ -2,6 +2,7 @@
 
 Comprehensive Enterprise-Grade Automation Testing Architecture built using **Python, Flask, Pytest, and Selenium WebDriver**. This repository contains the hardened **Sprint 2 (v2.0)** pipeline release, featuring full payload sanitization, binary file persistence, and automated regression testing.
 
+
 ---
 
 ## 📈 System Maturity Overview

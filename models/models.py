@@ -16,6 +16,7 @@ class Product:
     image: str | None = None
 
 
+
 # OR YOU CAN DO IT IN THE GOOD OLD WAY:
 # class Product:
 #     def __init__(self, product_id: int, name: str, price: float, image: str):

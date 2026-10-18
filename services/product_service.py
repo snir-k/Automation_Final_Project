@@ -94,3 +94,4 @@ def delete_product(product_id: int) -> None:
     if not product_repository.delete_product(product_id):
         raise ProductNotFoundServiceError(f"Product not found: {product_id}")
     return None
+

@@ -61,3 +61,4 @@ def test_api_create_product_bug11_whitespace_image(client, invalid_image):
     }
     response = client.post('/api/products', data=payload, content_type='multipart/form-data')
     assert response.status_code == 400
+
